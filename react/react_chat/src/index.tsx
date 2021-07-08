@@ -6,6 +6,8 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 import './styles/reset.scss';
+import './styles/foundation.scss';
+
 import Layout from "./components/templates/Layout";
 import Top from './pages/Top';
 import Chat from './pages/Chat';
