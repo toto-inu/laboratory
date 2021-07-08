@@ -16,7 +16,7 @@ const tasks = new Task({
 tasks.save().then(() => console.log("here comes datas!!!"));
 
 // [パターン2: 全件一致]
-Task.find({ layer: 2 }).exec((err, task) => {
+Task.find().exec((err, task) => {
   console.log(task);
 });
 
