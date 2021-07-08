@@ -68,31 +68,29 @@ ReactDOM.render(
 
 #### ちなみに、認証が必要な場合...
 
-isidでいい感じの記述を発見
+こんなイメージ↓
 
 ```jsx
+
+const isAuthenticated = hogehoge...;
 return (
-  <BrowserRouter>
+  <Router>
     <Switch>
       <Route path="/login">
-        {isAuthenticated ? <Redirect to="dashboard" /> : <Login />}
+        {isAuthenticated ? <Redirect to="/" /> : <Login />}
       </Route>
       {isAuthenticated ? (
         <>
-          <FetchRdb />
-          <Header />
-          {modal.isDisplay && <Modal content={modal.content} />}
-          <Route exact path="/">
-            <Redirect to="/dashboard" />
-          </Route>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/daily" component={Daily} />
+          <Layout>
+            <Route exact path="/" component={Top}>
+            <Route path="/chat" component={Chat} />
+          </Layout>
         </>
       ) : (
         <Redirect to="/login" />
       )}
     </Switch>
-  </BrowserRouter>
+  </Router>
 );
 ```
 
