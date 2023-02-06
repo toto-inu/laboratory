@@ -46,25 +46,28 @@ class _MyHomePageState extends State<MyHomePage> {
        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
        title: const Text("Flutterラボ"),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            leading: const Icon(Icons.key),
-            title: Text(titleList[0])
-          ),
-          const Divider(height: 0, thickness: 1,),
-          const ListTile(
-              leading: Icon(Icons.key),
-              title: Text("rakuten")
-          ),
-          const ListTile(
-              leading: Icon(Icons.key),
-              title: Text("yahoo")
-          ),
-        ],
-      ),
+      body: ListView.builder(
+        itemCount: titleList.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.key),
+                title: Text(titleList[index])
+              ),
+              const Divider(height: 0)
+            ]
+          );
+        }
+      ) ,
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          titleList.add("Google");
+          print("🐕${titleList}");
+          setState(() {
+
+          });
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
